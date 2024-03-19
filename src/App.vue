@@ -22,22 +22,19 @@ const operador = () => {
       return number1 * number2;
     case 'dividir': 
       return number1 / number2;
-      
+
     default:
         return '';
   }
 }
 
-
+// @change="evento => standyBy.numeros = evento.target.value"
 </script>
 
 <template> 
  <div class="container">
   <header class="p-5 mb-4 mt-4 bg-info rounded-4">
   <h1>Calculadora com VueJS</h1>
-    <p>
-      Resultado: {{ operadorClicado.numeros }}
-    </p>
 </header>
 </div>
 <form>
@@ -48,12 +45,9 @@ const operador = () => {
     <div class="col-sm-3">
       <input class="form-control-sm" type="number" placeholder="Digite outro número!">
     </div>
-    <div class="col-md-1">
-      <button @change="evento => standyBy.numeros = evento.target.value" id="btn-space" class="btn btn-primary">Calcular</button>
-    </div>
     <div class="col-md-2">
       <select class="form-control-sm">
-        <option id="soma" value="soma">Somar</option>
+        <option  id="soma" value="soma">Somar</option>
         <option id="subtrair" value="subtrair">Subtrair</option>
         <option id="multiplicar" value="multiplicar">Multiplicar</option>
         <option id="dividir" value="dividir">Dividir</option>
@@ -61,6 +55,10 @@ const operador = () => {
     </div>
   </div>
 </form>
+
+<br/>
+Resultado:
+{{ operador ()}}
 
 </template>
 
