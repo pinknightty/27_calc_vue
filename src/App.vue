@@ -2,31 +2,26 @@
 import { reactive } from 'vue';
 
 const standyBy = reactive ({
-  numeros: [
-    {
-      valorAtual: '000',
-    }
-  ]
+    number1: 0,
+    number2: 0,
  })
 
-const operador = () => {
-  const { operadorClicado } = numeros;
-  let number1 = 0;
-  let number2 = 0;
-  switch (operadorClicado) {
-    case 'soma':
-      return number1 + number2;
-    case 'subtrair':
-      return number1 - number2;
-    case 'multiplicar':
-      return number1 * number2;
-    case 'dividir': 
-      return number1 / number2;
 
-    default:
-        return '';
-  }
-}
+ function somar() {
+   standyBy.number1 + standyBy.number2;
+ }
+
+ function subtrair() {
+    standyBy.number1 - standyBy.number2;
+ }
+
+ function multiplicar() {
+   standyBy.number1 * standyBy.number2;
+ }
+
+ function dividir() {
+   standyBy.number1 / standyBy.number2;
+ }  
 
 // @change="evento => standyBy.numeros = evento.target.value"
 </script>
@@ -46,20 +41,21 @@ const operador = () => {
       <input class="form-control-sm" type="number" placeholder="Digite outro número!">
     </div>
     <div class="col-md-2">
-      <select class="form-control-sm">
-        <option  id="soma" value="soma">Somar</option>
-        <option id="subtrair" value="subtrair">Subtrair</option>
-        <option id="multiplicar" value="multiplicar">Multiplicar</option>
-        <option id="dividir" value="dividir">Dividir</option>
+      <select @change="reactive()" class="form-control-sm">
+        <option value="Operação">Escolher operação</option>
+        <option @click="somar" value="soma">Somar</option>
+        <option @click="subtrair" id="subtrair" value="subtrair">Subtrair</option>
+        <option @click="multiplicar" id="multiplicar" value="multiplicar">Multiplicar</option>
+        <option @click="dividir" id="dividir" value="dividir">Dividir</option>
     </select>
     </div>
   </div>
 </form>
 
 <br/>
-Resultado:
-{{ operador ()}}
-
+  <p>
+    Resultado:  {{ somar() || subtrair() || multiplicar() || dividir ()}}
+  </p>
 </template>
 
 
