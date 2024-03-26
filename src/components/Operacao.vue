@@ -10,6 +10,7 @@
             <option value="-">Subtração</option>
             <option value="*">Multiplicação</option>
             <option value="/">Divisão</option>
+            <option value="^">Exponenciação</option>            
          </select>
     </div>
     <input class="form-control-sm" @keyup="props.number1" required type="number" placeholder="insira um número" />

@@ -21,6 +21,8 @@ const standyBy = reactive ({
       return parseFloat(standyBy.number1) * parseFloat(standyBy.number2)
     case '/':
       return parseFloat(standyBy.number1) / parseFloat(standyBy.number2)
+    case '^':
+      return parseFloat(standyBy.number1) ** parseFloat(standyBy.number2)   
     default:
       return parseFloat(standyBy.number1) + parseFloat(standyBy.number2)
   }
